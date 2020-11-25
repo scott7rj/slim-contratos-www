@@ -1,0 +1,19 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 230px;
+  border: 0px solid transparent;
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 2px 2px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}

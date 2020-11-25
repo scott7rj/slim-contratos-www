@@ -1,0 +1,178 @@
+<?php
+namespace app\model;
+use app\model\AppModel;
+
+final class Empresa extends AppModel {
+    private $id_empresa;
+    private $empresa;
+    private $cnpj;
+    private $endereco;
+    private $cidade;
+    private $uf;
+    private $cep;
+    private $observacao;
+
+    public function __construct() {
+        parent::__construct();
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getIdEmpresa()
+    {
+        return $this->id_empresa;
+    }
+
+    /**
+     * @param mixed $id_empresa
+     *
+     * @return self
+     */
+    public function setIdEmpresa($id_empresa)
+    {
+        $this->id_empresa = $id_empresa;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmpresa()
+    {
+        return $this->empresa;
+    }
+
+    /**
+     * @param mixed $empresa
+     *
+     * @return self
+     */
+    public function setEmpresa($empresa)
+    {
+        $this->empresa = $empresa;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCnpj()
+    {
+        return $this->cnpj;
+    }
+
+    /**
+     * @param mixed $cnpj
+     *
+     * @return self
+     */
+    public function setCnpj($cnpj)
+    {
+        $this->cnpj = $cnpj;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEndereco()
+    {
+        return $this->endereco;
+    }
+
+    /**
+     * @param mixed $endereco
+     *
+     * @return self
+     */
+    public function setEndereco($endereco)
+    {
+        $this->endereco = $endereco;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCidade()
+    {
+        return $this->cidade;
+    }
+
+    /**
+     * @param mixed $cidade
+     *
+     * @return self
+     */
+    public function setCidade($cidade)
+    {
+        $this->cidade = $cidade;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUf()
+    {
+        return $this->uf;
+    }
+
+    /**
+     * @param mixed $uf
+     *
+     * @return self
+     */
+    public function setUf($uf)
+    {
+        $this->uf = $uf;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCep()
+    {
+        return $this->cep;
+    }
+
+    /**
+     * @param mixed $cep
+     *
+     * @return self
+     */
+    public function setCep($cep)
+    {
+        $this->cep = $cep;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getObservacao()
+    {
+        return $this->observacao;
+    }
+
+    /**
+     * @param mixed $observacao
+     *
+     * @return self
+     */
+    public function setObservacao($observacao)
+    {
+        $this->observacao = $observacao;
+
+        return $this;
+    }
+}

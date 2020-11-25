@@ -1,0 +1,16 @@
+<link type="text/css" rel="stylesheet" href="css/menu/menu.css" />
+
+<div id="dvMainSearch">
+	<input type="text" id="dvMenuTxtPesquisa" size="30" maxlength="50" placeholder="PESQUISAR" value="" onkeyup="filterFunction()" />
+	<div class="dropdown">
+		<div id="contentDropdown" class="dropdown-content">
+			<select id="dvMenuSel" size="12" style="width:350px">
+			{% for op in menu %}
+				<option value="{{ op.url }}|{{ op.method }}|{{ op.target }}">{{ op.nome }}</option>
+			{% endfor %}
+			</select>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/menu/menu.js"></script>

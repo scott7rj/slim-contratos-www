@@ -1,0 +1,8 @@
+[
+{"nome":"EMPRESA: listar", "url": "empresas", "method": "GET", "target": "#wrapc2"},
+{"nome":"CONTRATO: listar", "url": "contratos", "method": "GET", "target": "#wrapc2"},
+{"nome":"ADM: tipo contato listar", "url": "parametros", "method": "GET", "target": "#wrapc2"},
+{"nome":"ADM: tipo penalidade listar", "url": "parametros", "method": "GET", "target": "#wrapc2"},
+{"nome":"ADM: tipo contrato listar", "url": "parametros", "method": "GET", "target": "#wrapc2"},
+{"nome":"ADM: tipo xpto listar", "url": "parametros", "method": "GET", "target": "#wrapc2"}
+]

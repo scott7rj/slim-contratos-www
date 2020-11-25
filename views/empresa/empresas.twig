@@ -1,0 +1,64 @@
+{% extends 'layout/skeleton.twig' %}
+{% block content %}
+<div id="dvEmpresas">
+	<table class="tblTitle">
+		<tr>
+			<td><span class="spanTitle">EMPRESAS</span></td>
+		</tr>
+		<tr>
+			<td><button class="app-btn b" onclick="novaEmpresaSystem();" title="nova empresa"><span class="glyphicon glyphicon-plus"></span></button></td>
+		</tr>
+	</table>
+
+	<table class="tblDefault">
+		<tr>
+			<th>RAZÃO SOCIAL</th>	
+			<th>CNPJ</th>
+			<th>ENDEREÇO</th>
+			<th>CIDADE</th>
+			<th>UF</th>
+			<th>CEP</th>
+			<th></th>
+			<th></th>
+		</tr>
+		{% for obj in array %}
+		<tr>
+			<td>{{ obj.empresa }}</td>
+			<td class="formatcnpj">{{ obj.cnpj }}</td>
+			<td>{{ obj.endereco }}</td>
+			<td>{{ obj.cidade }}</td>
+			<td>{{ obj.uf }}</td>
+			<td class="formatcep">{{ obj.cep }}</td>
+			<td style="text-align: center" onclick="alterarEmpresaSystem('{{ obj.id_empresa }}')"><span class="glyphicon glyphicon-edit spanIcon"></span></td>
+			<td style="text-align: center" onclick="removerEmpresaSystem('{{ obj.id_empresa }}')"><span class="glyphicon glyphicon-trash spanIcon"></span></td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}
+{% block script %}
+<script>
+$('.wrap3').css({'grid-template-columns':'0fr 1fr 0fr'});
+
+function novaEmpresaSystem() {
+	$.get('./loadEmpresa', { idEmpresa: "0" }, function(data) {
+        $('#wrapc3').html(data);
+    });
+	$('.wrap3').css({'grid-template-columns':'0fr 6fr 4fr'});	
+}
+
+function alterarEmpresaSystem(idEmpresa) {
+	console.log('alterar empresa ' + idEmpresa);
+	$.get('./loadEmpresa', { idEmpresa: idEmpresa }, function(data) {
+        $('#wrapc3').html(data);
+    });
+	$('.wrap3').css({'grid-template-columns':'0fr 6fr 4fr'});	
+}
+function removerEmpresaSystem(idEmpresa) {
+	console.log('remover empresa ' + idEmpresa);
+}
+formatStringCnpjSystem();
+formatStringCepSystem();
+</script>
+{% endblock %}
+

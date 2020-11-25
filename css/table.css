@@ -1,0 +1,133 @@
+.tblDefault {
+    margin: 0.2rem 0.2rem 0.2rem 0.5rem;
+    padding: 0; 
+    border: 1px solid black;
+    font-weight: normal;
+    width: 99%;
+}
+.tblDefault tr {
+    margin: 0;
+    padding: 0;
+    border: 0px solid black;
+    background-color: #CCCCCC;
+}
+.tblDefault tr:nth-child(even) {
+    background-color: white;
+}
+.tblDefault tr:nth-child(odd) {
+    background-color: white;
+}
+.tblDefault tr:hover {
+    background-color: #EEEEEE;
+    cursor: default;
+}
+.tblDefault th {
+    margin: 0;
+    padding: 1px 5px 1px 5px; 
+    border: 1px solid black;
+    font-family: "Lucida Console", "Trebuchet MS", Courier;
+    font-size: 10px;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #666666;
+    color: white;
+}
+.tblDefault th a {
+    margin: 0;
+    padding: 0;
+    text-decoration: underline;
+    color: white;
+}
+.tblDefault th a:hover {
+    margin: 0;
+    padding: 0;
+    text-decoration: underline;
+    color: cyan;
+}
+.tblDefault th:hover {
+    cursor: default;
+}
+.tblDefault td {
+    margin: 0;
+    padding: 1px 5px 1px 5px; 
+    border: 1px solid black;
+    font-family: "Lucida Console", "Trebuchet MS", Courier;
+    font-size: 0.9rem;
+    text-align: left;
+    vertical-align: middle;
+}
+.tblBorderless {
+    margin: 0.1rem;
+    padding: 0; 
+    border: 1px solid transparent;
+    font-weight: normal;
+    width: 99%;
+}
+.tblBorderless tr {
+    margin: 0;
+    padding: 0;
+    border: 0px solid transparent;
+    background-color: white;
+}
+.tblBorderless td {
+    margin: 0;
+    padding: 1px 5px 1px 5px; 
+    border: 1px solid transparent;
+    font-family: "Lucida Console", "Trebuchet MS", Courier;
+    font-size: 0.9rem;
+    text-align: left;
+    vertical-align: middle;
+}
+
+
+.tblForm {
+    margin: 0.2rem 0.2rem 0.2rem 0.5rem;
+    padding: 0; 
+    border: 1px solid transparent;
+    font-weight: normal;
+    width: 99%; 
+    table-layout: auto;
+}
+.tblForm tr {
+    margin: 0;
+    padding: 0;
+    border: 0px solid black;
+    background-color: white;
+}
+.tblForm th {
+    margin: 0;
+    padding: 1px 5px 1px 5px; 
+    border: 1px solid transparent;
+    font-family: "Lucida Console", "Trebuchet MS", Courier;
+    font-size: 10px;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    background-color: white;
+    color: white;
+}
+.tblForm th a {
+    margin: 0;
+    padding: 0;
+    text-decoration: underline;
+    color: white;
+}
+.tblForm td {
+    margin: 0;
+    padding: 1px 1px 4px 5px; 
+    border: 1px solid transparent;
+    font-family: "Lucida Console", "Trebuchet MS", Courier;
+    font-size: 0.9rem;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.tblTitle {
+    margin: 0.2rem 0.2rem 0.2rem 0.5rem;
+    padding: 0; 
+    border: 1px solid transparent;
+    font-weight: normal;
+    width: 99%; 
+    table-layout: auto;
+}

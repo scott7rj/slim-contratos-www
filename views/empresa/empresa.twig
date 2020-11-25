@@ -1,0 +1,18 @@
+{% extends 'layout/skeleton.twig' %}
+{% block content %}
+<table class="tblTitle">
+	<tr>
+		<td><span class="spanTitle">DADOS BÁSICOS</span></td>
+	</tr>
+</table>
+<table>
+	<tr><td>{{ array.empresa }}</td></tr>
+	<tr><td class="formatcnpj">{{ array.cnpj }}</td></tr>
+	<tr><td>{{ array.endereco }}</td></tr>
+</table>
+{% endblock %}
+{% block script %}
+<script>
+formatStringCnpjSystem();
+</script>
+{% endblock %}
