@@ -1,0 +1,46 @@
+{% extends 'layout/skeleton.twig' %}
+{% block content %}
+<table class="tblTitle">
+	<tr>
+		<td><span class="spanTitle">TELEFONES</span></td>
+	</tr>
+</table>
+<form id="empresaTelefoneFrm" onsubmit="return false;" style="margin-right:0.5rem;width:95%;">
+	<table class="tblForm">
+		<tr>
+			<td class="title">TELEFONE</td>
+			<td><input type="text" id="empresaTxtTelefone" class="formattelefone" size="13" maxlength="13" placeholder="TELEFONE" value="" required /></td>
+		</tr>
+		<tr>
+			<td class="title">TIPO CONTATO</td>
+			<td>{{ comboTipoContato | raw }}</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<button class="app-btn b" onclick="salvarTelefoneEmpresaSystem({{ idEmpresa }});" title="novo telefone"><span class="glyphicon glyphicon-ok"></span>&nbsp;SALVAR</button>
+			</td>
+		</tr>
+	</table>
+	{% if telefones|length > 0 %}
+		<table class="tblDefault">
+			<tr>
+				<th>TELEFONE</th>	
+				<th>TIPO</th>
+				<th></th>
+			</tr>
+			{% for obj in telefones %}
+			<tr>
+				<td class="formattelefone">{{ obj.telefone }}</td>
+				<td>{{ obj.tipo_contato }}</td>
+				<td style="text-align: center" onclick="removerTelefoneEmpresaSystem({{ obj.id_telefone }});"><span class="glyphicon glyphicon-trash spanIcon"></span></td>
+			</tr>
+			{% endfor %}
+		</table>
+	{% endif %}
+</form>
+{% endblock %}
+{% block script %}
+<script>
+	formatStringTelefoneSystem();	
+</script>
+{% endblock %}

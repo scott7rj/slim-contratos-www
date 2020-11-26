@@ -5,14 +5,48 @@
 		<td><span class="spanTitle">DADOS BÁSICOS</span></td>
 	</tr>
 </table>
-<table>
-	<tr><td>{{ array.empresa }}</td></tr>
-	<tr><td class="formatcnpj">{{ array.cnpj }}</td></tr>
-	<tr><td>{{ array.endereco }}</td></tr>
-</table>
+<form id="empresaFrm" onsubmit="return false;" style="margin-right:0.5rem;">
+	<table class="tblForm">
+		<tr>
+			<td class="title">RAZÃO SOCIAL</td>
+			<td colspan="3"><input type="text" id="empresaTxtRazaoSocial" size="60" maxlength="200" placeholder="RAZÃO SOCIAL" value="{{ empresa.empresa }}" required /></td>
+		</tr>
+		<tr>
+			<td class="title">CNPJ</td>
+			<td colspan="3"><input type="text" id="empresaTxtCnpj" class="formatcnpj" size="19" maxlength="18" placeholder="CNPJ" value="{{ empresa.cnpj }}" required /></td>
+		</tr>
+		<tr>
+			<td class="title">ENDEREÇO</td><td colspan="3">
+			<input type="text" id="empresaTxtEndereco" size="60" maxlength="200" placeholder="ENDEREÇO" value="{{ empresa.endereco }}" required /></td>
+		</tr>
+		<tr>
+			<td class="title">CIDADE</td>
+			<td><input type="text" id="empresaTxtCidade" size="60" maxlength="100" placeholder="CIDADE" value="{{ empresa.cidade }}" required /></td>
+			<td class="title">UF</td>
+			<td>{{ comboUf | raw }}</td>
+		</tr>
+		<tr>
+			<td class="title">CEP</td><td colspan="3">
+			<input type="text" id="empresaTxtCep" class="formatcep" size="10" maxlength="9" placeholder="CEP" value="{{ empresa.cep }}" required /></td>
+		</tr>
+		<tr>
+			<td class="title">OBSERVAÇÃO</td>
+			<td colspan="3">
+				<textarea id="empresaTxtObservacao" cols="80" rows="8" maxlength="8000">{{ empresa.cep }}</textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4">
+				<button class="app-btn b" onclick="salvarEmpresaSystem();" title="nova empresa"><span class="glyphicon glyphicon-ok"></span>&nbsp;SALVAR</button>
+			</td>
+		</tr>
+	</table>
+</form>
 {% endblock %}
 {% block script %}
 <script>
+$('#empresaTxtRazaoSocial').focus();
 formatStringCnpjSystem();
+formatStringCepSystem();
 </script>
 {% endblock %}

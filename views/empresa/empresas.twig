@@ -6,11 +6,14 @@
 			<td><span class="spanTitle">EMPRESAS</span></td>
 		</tr>
 		<tr>
-			<td><button class="app-btn b" onclick="novaEmpresaSystem();" title="nova empresa"><span class="glyphicon glyphicon-plus"></span></button></td>
+			<td>
+				<button class="app-btn b" onclick="inserirAlterarEmpresaSystem(0);" title="nova empresa"><span class="glyphicon glyphicon-plus"></span>&nbsp;NOVA EMPRESA</button>
+				<input type="text" id="empresasFilter" size="18" value="" placeholder="FILTRO" />
+			</td>
 		</tr>
 	</table>
 
-	<table class="tblDefault">
+	<table id="empresasTbl" class="tblDefault">
 		<tr>
 			<th>RAZÃO SOCIAL</th>	
 			<th>CNPJ</th>
@@ -21,44 +24,30 @@
 			<th></th>
 			<th></th>
 		</tr>
-		{% for obj in array %}
-		<tr>
+		{% for obj in empresas %}
+		<tr class="empresasTbTr">
 			<td>{{ obj.empresa }}</td>
 			<td class="formatcnpj">{{ obj.cnpj }}</td>
 			<td>{{ obj.endereco }}</td>
 			<td>{{ obj.cidade }}</td>
 			<td>{{ obj.uf }}</td>
 			<td class="formatcep">{{ obj.cep }}</td>
-			<td style="text-align: center" onclick="alterarEmpresaSystem('{{ obj.id_empresa }}')"><span class="glyphicon glyphicon-edit spanIcon"></span></td>
-			<td style="text-align: center" onclick="removerEmpresaSystem('{{ obj.id_empresa }}')"><span class="glyphicon glyphicon-trash spanIcon"></span></td>
+			<td style="text-align: center" onclick="inserirAlterarEmpresaSystem({{ obj.id_empresa }});"><span class="glyphicon glyphicon-edit spanIcon"></span></td>
+			<td style="text-align: center" onclick="removerEmpresaSystem({{ obj.id_empresa }});"><span class="glyphicon glyphicon-trash spanIcon"></span></td>
 		</tr>
 		{% endfor %}
 	</table>
 </div>
 {% endblock %}
 {% block script %}
+<script type="text/javascript" src="js/empresa/empresa.js"></script>
 <script>
-$('.wrap3').css({'grid-template-columns':'0fr 1fr 0fr'});
-
-function novaEmpresaSystem() {
-	$.get('./loadEmpresa', { idEmpresa: "0" }, function(data) {
-        $('#wrapc3').html(data);
+$("#empresasFilter").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#empresasTbl .empresasTbTr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
-	$('.wrap3').css({'grid-template-columns':'0fr 6fr 4fr'});	
-}
-
-function alterarEmpresaSystem(idEmpresa) {
-	console.log('alterar empresa ' + idEmpresa);
-	$.get('./loadEmpresa', { idEmpresa: idEmpresa }, function(data) {
-        $('#wrapc3').html(data);
-    });
-	$('.wrap3').css({'grid-template-columns':'0fr 6fr 4fr'});	
-}
-function removerEmpresaSystem(idEmpresa) {
-	console.log('remover empresa ' + idEmpresa);
-}
-formatStringCnpjSystem();
-formatStringCepSystem();
+  });
 </script>
 {% endblock %}
 

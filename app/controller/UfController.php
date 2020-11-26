@@ -12,7 +12,7 @@ final class UfController extends AppController {
     public function __construct() {
         parent::__construct();
     }
-    public function selectUf(Request $request, Response $response, array $args): Response {
+    public function selectUf(Request $request, Response $response, array $args) {
         try {
             $dao = new UfDAO();
             $result = $dao->selectUf();

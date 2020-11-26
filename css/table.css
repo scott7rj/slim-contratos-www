@@ -82,18 +82,19 @@
 
 
 .tblForm {
-    margin: 0.2rem 0.2rem 0.2rem 0.5rem;
+    margin: 0.2rem 0.5rem 0.2rem 0.5rem;
     padding: 0; 
     border: 1px solid transparent;
     font-weight: normal;
     width: 99%; 
     table-layout: auto;
+    background-color: #DDDDDD;
 }
 .tblForm tr {
     margin: 0;
     padding: 0;
-    border: 0px solid black;
-    background-color: white;
+    border: 1px solid black;
+    background-color: #DDDDDD;
 }
 .tblForm th {
     margin: 0;
@@ -103,24 +104,36 @@
     font-size: 10px;
     font-weight: normal;
     text-align: center;
-    vertical-align: middle;
-    background-color: white;
-    color: white;
+    vertical-align: top;
+    background-color: #DDDDDD;
+    color: black;
 }
 .tblForm th a {
     margin: 0;
     padding: 0;
     text-decoration: underline;
-    color: white;
+    color: black;
 }
 .tblForm td {
     margin: 0;
     padding: 1px 1px 4px 5px; 
-    border: 1px solid transparent;
+    border: 1px solid black;
     font-family: "Lucida Console", "Trebuchet MS", Courier;
     font-size: 0.9rem;
     text-align: left;
-    vertical-align: middle;
+    vertical-align: top;
+}
+.tblForm .title {
+    margin: 0;
+    padding: 1px 5px 1px 5px; 
+    border: 1px solid black;
+    font-family: "Lucida Console", "Trebuchet MS", Courier;
+    font-size: 10px;
+    font-weight: normal;
+    text-align: left;
+    vertical-align: top;
+    background-color: #666666;
+    color: white;
 }
 
 .tblTitle {

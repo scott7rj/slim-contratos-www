@@ -1,7 +1,7 @@
 function resetLayoutSystem() {
     $('.wrap3').css({'grid-template-columns':'1fr 1fr 1fr'});
-    $('.wrap4').css({'grid-template-columns':'1fr 1fr 1fr'});
-    $('.wrap5').css({'grid-template-columns':'1fr 1fr 1fr'});
+    $('.wrap4').css({'grid-template-columns':'0fr 1fr 1fr 1fr 0fr'});
+    $('.wrap5').css({'grid-template-columns':'0fr 1fr 1fr 1fr 0fr'});
 }
 
 function clearAllBusinessContentSystem() {
@@ -43,7 +43,7 @@ function loginSystem() {
 			$('#dvLoginTxtId').focus();
 			return;
 		}
-		$('#wrapb3').html(obj.matricula + '-' + obj.nome + '-' + obj.funcao + '-' + obj.idUnidade + '-' + obj.sgUnidade);
+		$('#wrapb3').html(obj.matricula + ' ' + obj.nome + '-' + obj.funcao + ' ' + obj.idFuncao + '-' + obj.sgUnidade + ' ' + obj.idUnidade);
         buildMainMenuSystem();	
 	});	
 }
@@ -100,4 +100,7 @@ function formatStringCnpjSystem() {
 }
 function formatStringCepSystem() {
 	$('.formatcep').mask('00000-000');
+}
+function formatStringTelefoneSystem() {
+	$('.formattelefone').mask('(00)0000-0000');
 }
