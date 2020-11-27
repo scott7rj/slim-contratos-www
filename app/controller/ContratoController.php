@@ -16,19 +16,31 @@ final class ContratoController extends AppController {
         parent::__construct();
     }
 
-    public function selectContratoPorIdEmpresa(Request $request, Response $response, array $args): Response {
+    public function selectContratoPorId(Request $request, Response $response, array $args) {
+        try {
+            $data = $request->getQueryParams();
+            $dao = new ContratoDAO();
+            $idContrato = $data['idContrato'];
+            $result = $dao->selectContratoPorId($idContrato);
+            return $result;
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public function selectContratoPorIdEmpresa(Request $request, Response $response, array $args) {
         try {
             $data = $request->getQueryParams();
             $idEmpresa = $data['idEmpresa'];
+
             $dao = new ContratoDAO();
             $result = $dao->selectContratoPorIdEmpresa($idEmpresa);
             return $result;
         } catch (Exception $e) {
-            $response = $response->withJson($this->getErroJson($e->getMessage()));
-            return $response;
+            throw new Exception($e->getMessage());
         }
     }
-    public function selectContratoCompromissoSiplo(Request $request, Response $response, array $args): Response {
+    public function selectContratoCompromissoSiplo(Request $request, Response $response, array $args) {
         try {
             $data = $request->getQueryParams();
             $idContrato = $data['idContrato'];
@@ -36,11 +48,10 @@ final class ContratoController extends AppController {
             $result = $dao->selectContratoCompromissoSiplo($idContrato);
             return $result;
         } catch (Exception $e) {
-            $response = $response->withJson($this->getErroJson($e->getMessage()));
-            return $response;
+            throw new Exception($e->getMessage());
         }
     }
-    public function selectContratoTipoPenalidade(Request $request, Response $response, array $args): Response {
+    public function selectContratoTipoPenalidade(Request $request, Response $response, array $args) {
         try {
             $data = $request->getQueryParams();
             $idContrato = $data['idContrato'];
@@ -52,11 +63,10 @@ final class ContratoController extends AppController {
             $result = $dao->selectContratoTipoPenalidade($model);
             return $result;
         } catch (Exception $e) {
-            $response = $response->withJson($this->getErroJson($e->getMessage()));
-            return $response;
+            throw new Exception($e->getMessage());
         }
     }
-    public function insertContrato(Request $request, Response $response, array $args): Response {
+    public function insertContrato(Request $request, Response $response, array $args) {
         try {
             $data = $request->getParsedBody();
             $dao = new ContratoDAO();
@@ -81,11 +91,10 @@ final class ContratoController extends AppController {
             $result = $dao->insertContrato($model);
             return $result;
         } catch (Exception $e) {
-            $response = $response->withJson($this->getErroJson($e->getMessage()));
-            return $response;
+            throw new Exception($e->getMessage());
         }
     }
-    public function insertContratoCompromissoSiplo(Request $request, Response $response, array $args): Response {
+    public function insertContratoCompromissoSiplo(Request $request, Response $response, array $args) {
         try {
             $data = $request->getParsedBody();
             $dao = new ContratoDAO();
@@ -96,11 +105,10 @@ final class ContratoController extends AppController {
             $result = $dao->insertContratoCompromissoSiplo($model);
             return $result;
         } catch (Exception $e) {
-            $response = $response->withJson($this->getErroJson($e->getMessage()));
-            return $response;
+            throw new Exception($e->getMessage());
         }
     }
-    public function insertContratoTipoPenalidade(Request $request, Response $response, array $args): Response {
+    public function insertContratoTipoPenalidade(Request $request, Response $response, array $args) {
         try {
             $data = $request->getParsedBody();
             $dao = new ContratoDAO();
@@ -110,11 +118,10 @@ final class ContratoController extends AppController {
             $result = $dao->insertContratoTipoPenalidade($model);
             return $result;
         } catch (Exception $e) {
-            $response = $response->withJson($this->getErroJson($e->getMessage()));
-            return $response;
+            throw new Exception($e->getMessage());
         }
     }
-    public function updateContrato(Request $request, Response $response, array $args): Response {
+    public function updateContrato(Request $request, Response $response, array $args) {
         try {
             $data = $request->getParsedBody();
             $dao = new ContratoDAO();
@@ -138,11 +145,10 @@ final class ContratoController extends AppController {
             $result = $dao->updateContrato($model);
             return $result;
         } catch (Exception $e) {
-            $response = $response->withJson($this->getErroJson($e->getMessage()));
-            return $response;
+            throw new Exception($e->getMessage());
         }
     }
-    public function deleteContrato(Request $request, Response $response, array $args): Response {
+    public function deleteContrato(Request $request, Response $response, array $args) {
         try {
             $data = $request->getParsedBody();
             $dao = new ContratoDAO();
@@ -151,12 +157,11 @@ final class ContratoController extends AppController {
             $result = $dao->deleteContrato($model);
             return $result;
         } catch (Exception $e) {
-            $response = $response->withJson($this->getErroJson($e->getMessage()));
-            return $response;
+           throw new Exception($e->getMessage());
         }
     }
 
-    public function deleteContratoTipoPenalidade(Request $request, Response $response, array $args): Response {
+    public function deleteContratoTipoPenalidade(Request $request, Response $response, array $args) {
         try {
             $data = $request->getParsedBody();
             $dao = new ContratoDAO();
@@ -166,8 +171,7 @@ final class ContratoController extends AppController {
             $result = $dao->deleteContratoTipoPenalidade($model);
             return $result;
         } catch (Exception $e) {
-            $response = $response->withJson($this->getErroJson($e->getMessage()));
-            return $response;
+            throw new Exception($e->getMessage());
         }   
     }
 }

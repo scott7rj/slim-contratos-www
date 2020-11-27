@@ -3,6 +3,7 @@ namespace app\util;
 use app\dao\UfDAO;
 use app\dao\TipoDocumentoDAO;
 use app\dao\TipoContatoDAO;
+use app\dao\EmpresaDAO;
 
 final class ComboBuilder extends Util {
 
@@ -71,6 +72,29 @@ final class ComboBuilder extends Util {
 					$result .= "<option value='{$item['id_tipo_contato']}' selected>{$item['tipo_contato']}</option>";
 				else
 					$result .= "<option value='{$item['id_tipo_contato']}'>{$item['tipo_contato']}</option>";
+			}
+			$result .= "</select>";
+			return $result;
+		} catch(Exception $e) {
+			throw new Exception($e->getMessage());
+		}
+	}
+
+	static function comboEmpresa($id, $class, $valueToCheck, $hasEmptyOption, $width) {
+		if ($class !== "")
+			$result = "<select id='{$id}' name='{$id}' class='{$class}' style='width:{$width};'>";
+		else
+			$result = "<select id='{$id}' name='{$id}' style='width:{$width};'>";
+		if($hasEmptyOption) 
+			$result .= "<option value=''></option>";
+		try {
+			$dao = new EmpresaDAO();
+			$array = $dao->selectEmpresa();
+			foreach($array as $item) {
+				if($valueToCheck === $item['id_empresa'])
+					$result .= "<option value='{$item['id_empresa']}' selected>{$item['empresa']}</option>";
+				else
+					$result .= "<option value='{$item['id_empresa']}'>{$item['empresa']}</option>";
 			}
 			$result .= "</select>";
 			return $result;

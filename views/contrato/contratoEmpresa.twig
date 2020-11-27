@@ -1,0 +1,35 @@
+{% extends 'layout/skeleton.twig' %}
+{% block content %}
+<table class="tblTitle">
+<tr>
+	<td><span class="spanTitle">CONTRATOS</span></td>
+</tr>
+</table>
+
+<table class="tblForm" style="width:40%">
+	<tr>
+		<td class="title">EMPRESA</td>
+		<td colspan=>{{ listaContratoSelEmpresa | raw }}</td>
+	</tr>
+</table>
+<div id="dvListaContrato">
+
+</div>
+{% endblock %}
+{% block script %}
+<script type="text/javascript" src="js/contrato/contrato.js"></script>
+<script>
+document.getElementById('listaContratoSelEmpresa').focus();
+
+document.getElementById('listaContratoSelEmpresa').addEventListener("change", function(){
+    
+    if (document.getElementById('listaContratoSelEmpresa').selectedIndex > 0) {
+    	let idEmpresa = document.getElementById('listaContratoSelEmpresa').value;
+    	console.log(document.getElementById('listaContratoSelEmpresa').value);
+    	$.get('./listarContrato', { idEmpresa: idEmpresa }, function(data) {
+        	$('#dvListaContrato').html(data);
+        });
+    }
+});
+</script>
+{% endblock %}

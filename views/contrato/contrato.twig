@@ -1,0 +1,44 @@
+{% extends 'layout/skeleton.twig' %}
+{% block content %}
+<table class="tblTitle">
+	<tr>
+		<td><span class="spanTitle">DADOS BÁSICOS</span></td>
+	</tr>
+</table>
+<form id="empresaFrm" onsubmit="return false;" style="margin-right:0.5rem;">
+	<table class="tblForm">
+		<tr>
+			<td class="title">EMPRESA</td>
+			<td>{{ contratoSelEmpresa | raw }}</td>
+		</tr>
+		<tr>
+			<td class="title">CEP</td>
+			<td>
+				<input type="text" id="empresaTxtCep" class="formatcep" size="10" maxlength="9" placeholder="CEP" value="" required />
+			</td>
+		</tr>
+		<tr>
+			<td class="title">OBSERVAÇÃO</td>
+			<td>
+				<textarea id="empresaTxtObservacao" cols="80" rows="8" maxlength="8000"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button class="app-btn b" onclick="salvarEmpresaSystem();" title="nova empresa"><span class="glyphicon glyphicon-ok"></span>&nbsp;SALVAR</button>
+			</td>
+		</tr>
+	</table>
+</form>
+{% endblock %}
+{% block script %}
+<script>
+$(document).ready(function() {
+	console.log(document.getElementById('contratoSelEmpresa'));
+	if ('{{contrato.id_empresa}}' !== "0") {
+		document.getElementById('contratoSelEmpresa').disabled = true;
+	}
+});
+
+</script>
+{% endblock %}

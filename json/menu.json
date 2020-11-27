@@ -1,4 +1,4 @@
 [
 {"nome":"EMPRESA: listar", "url": "listarEmpresa", "method": "GET", "target": "#wrapc2"},
-{"nome":"CONTRATO: listar", "url": "selecionarEmpresa", "method": "GET", "target": "#wrapc2"}
+{"nome":"CONTRATO: listar", "url": "listarEmpresaContrato", "method": "GET", "target": "#wrapc2"}
 ]

@@ -10,6 +10,14 @@ class ContratoDAO extends Conexao {
         parent::__construct();
     }
 
+    public function selectContratoPorId($idContrato) {
+        $stmt = $this->pdo->prepare("SELECT * FROM [contratos].[fn_contrato_selecionar_por_id](:id_contrato)");
+        $stmt->bindParam('id_contrato', $idContrato);
+        $stmt->execute();
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        return $result;
+    }
+
     public function selectContratoPorIdEmpresa($idEmpresa) {
         $stmt = $this->pdo->prepare("SELECT * FROM [contratos].[fn_contrato_selecionar_por_id_empresa](:id_empresa)");
         $stmt->bindParam('id_empresa', $idEmpresa);

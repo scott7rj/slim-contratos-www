@@ -1,7 +1,7 @@
 function resetLayoutSystem() {
-    $('.wrap3').css({'grid-template-columns':'1fr 1fr 1fr'});
-    $('.wrap4').css({'grid-template-columns':'0fr 1fr 1fr 1fr 0fr'});
-    $('.wrap5').css({'grid-template-columns':'0fr 1fr 1fr 1fr 0fr'});
+    $('.wrap3').css({'grid-template-columns':'1fr 1fr 1fr','height':'28rem'});
+    $('.wrap4').css({'grid-template-columns':'0fr 1fr 1fr 1fr 0fr','height':'28rem'});
+    $('.wrap5').css({'grid-template-columns':'0fr 1fr 1fr 1fr 0fr','height':'0.1rem'});
 }
 
 function clearAllBusinessContentSystem() {
@@ -9,13 +9,6 @@ function clearAllBusinessContentSystem() {
     $('.wrap4 > div').html('');
     $('.wrap5 > div').html('');
 }
-
-(function() {
-	$(document).ready(function() {
-		console.log('jquery3.5.1 loaded');
-	});
-})();
-
 $('#dvLoginTxtId').focus();
 
 document.addEventListener("keydown", function(ev){
@@ -104,3 +97,11 @@ function formatStringCepSystem() {
 function formatStringTelefoneSystem() {
 	$('.formattelefone').mask('(00)0000-0000');
 }
+function formatStringDataSystem() {
+	$('.formattelefone').mask('00/00/0000');
+}
+(function() {
+	$(document).ready(function() {
+		console.log('jquery3.5.1 loaded');
+	});
+})();

@@ -1,0 +1,45 @@
+{% extends 'layout/skeleton.twig' %}
+{% block content %}
+<div id="dvContratos">
+	<table class="tblTitle">
+		<tr>
+			<td>
+				<button class="app-btn b" onclick="inserirAlterarContratoSystem(0);" title="novo contrato"><span class="glyphicon glyphicon-plus"></span>&nbsp;NOVO CONTRATO</button>
+				<input type="text" id="contratoFilter" size="18" value="" placeholder="FILTRO" />
+			</td>
+		</tr>
+	</table>
+	{% if contratos|length > 0 %}
+		<table id="contratosTbl" class="tblDefault">
+			<tr>
+				<th>NÚMERO PROCESSO</th>	
+				<th>INÍCIO VIGÊNCIA</th>
+				<th>FIM VIGÊNCIA</th>
+				<th></th>
+				<th></th>
+			</tr>
+			{% for obj in contratos %}
+			<tr class="contratosTbTr">
+				<td>{{ obj.numero_processo }}</td>
+				<td>{{ obj.data_inicio_vigencia }}</td>
+				<td>{{ obj.data_fim_vigencia }}</td>
+				<td style="text-align: center" onclick="inserirAlterarContratoSystem({{ obj.id_contrato }});"><span class="glyphicon glyphicon-edit spanIcon"></span></td>
+				<td style="text-align: center" onclick="removerContratoSystem({{ obj.id_contrato }});"><span class="glyphicon glyphicon-trash spanIcon"></span></td>
+			</tr>
+			{% endfor %}
+		</table>
+	{% endif %}
+</div>
+{% endblock %}
+{% block script %}
+
+<script>
+$("#contratoFilter").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#contratosTbl .contratosTbTr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+</script>
+{% endblock %}
+

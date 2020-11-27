@@ -7,13 +7,13 @@
 </table>
 <table style="width:99%;">
 	<tr>
-		<td style="border:1px solid red;width:40%;">
+		<td style="border:1px solid transparent;width:40%;">
 			<form id="empresaDocumentoFrm" onsubmit="return false;" style="margin-right:0.5rem;width:50%;">
 				<table class="tblForm">
 					
 					<tr>
 						<td class="title">TIPO DOCUMENTO</td>
-						<td>{{ comboTipoDocumento | raw }}</td>
+						<td>{{ empresaSelDocumentoTipoDocumento | raw }}</td>
 					</tr>
 					<tr>
 						<td class="title">SELECIONAR ARQUIVO</td>
@@ -34,30 +34,17 @@
 				</table>
 			</form>
 		</td>
-		<td style="border:1px solid red;width:50%;">
+		{% if documentos|length > 0 %}
+		<td style="border:1px solid transparent;width:50%;">
 			<table>
-				<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri 4-0594-05 45-60496 46-0.7z</td><td>111</td><td>111</td><td>x</td></tr>
-				<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri.7z</td><td>111</td><td>111</td><td>x</td></tr>
-				<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri.7z</td><td>111</td><td>111</td><td>x</td></tr>
-				<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri.7z</td><td>111</td><td>111</td><td>x</td></tr>
-				<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri.7z</td><td>111</td><td>111</td><td>x</td></tr>
-				<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri.7z</td><td>111</td><td>111</td><td>x</td></tr>
-				<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri.7z</td><td>111</td><td>111</td><td>x</td></tr>
-				<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri.7z</td><td>111</td><td>111</td><td>x</td></tr>
-				<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri.7z</td><td>111</td><td>111</td><td>x</td></tr>
-				<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri.7z</td><td>111</td><td>111</td><td>x</td></tr>
-				<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri.7z</td><td>111</td><td>111</td><td>x</td></tr>
-				<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri.7z</td><td>111</td><td>111</td><td>x</td></tr>
-				<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri.7z</td><td>111</td><td>111</td><td>x</td></tr>
-				<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri.7z</td><td>111</td><td>111</td><td>x</td></tr>
-				<!--<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri.7z</td><td>111</td><td>111</td><td>x</td></tr>
-				<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri.7z</td><td>111</td><td>111</td><td>x</td></tr>
-				<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri.7z</td><td>111</td><td>111</td><td>x</td></tr>
-				<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri.7z</td><td>111</td><td>111</td><td>x</td></tr>
-				<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri.7z</td><td>111</td><td>111</td><td>x</td></tr>
-				<tr><td>20051600164058272379055_ruroiwoirwirwioooiwoeriweorwri.7z</td><td>111</td><td>111</td><td>x</td></tr>-->
+				{% for obj in documentos %}
+				<tr>
+					<td>{{ obj.nome_documento }}</td>
+				</tr>
+				{% endfor %}
 			</table>
 		</td>
+		{% endif %}
 	</tr>
 </table>
 {% endblock %}

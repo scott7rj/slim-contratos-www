@@ -36,7 +36,7 @@ class EmpresaDAO extends Conexao {
     }
     public function selectEmpresaTelefone($idEmpresa) {
         try {
-            $stmt = $this->pdo->prepare("SELECT * FROM [contratos].[fn_telefone_selecionar_por_id_empresa](:id_empresa)");
+            $stmt = $this->pdo->prepare("SELECT * FROM [contratos].[fn_telefone_selecionar_por_id_empresa](:id_empresa) ORDER BY tipo_contato");
             $stmt->bindParam('id_empresa', $idEmpresa);
             $stmt->execute();
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -47,7 +47,7 @@ class EmpresaDAO extends Conexao {
     }
     public function selectEmpresaEmail($idEmpresa) {
         try {
-            $stmt = $this->pdo->prepare("SELECT * FROM [contratos].[fn_Email_selecionar_por_id_empresa](:id_empresa)");
+            $stmt = $this->pdo->prepare("SELECT * FROM [contratos].[fn_Email_selecionar_por_id_empresa](:id_empresa) ORDER BY tipo_contato");
             $stmt->bindParam('id_empresa', $idEmpresa);
             $stmt->execute();
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -58,7 +58,7 @@ class EmpresaDAO extends Conexao {
     }
     public function selectEmpresaDocumento($idEmpresa) {
         try {
-            $stmt = $this->pdo->prepare("SELECT * FROM [contratos].[fn_Documento_selecionar_por_id_empresa](:id_empresa)");
+            $stmt = $this->pdo->prepare("SELECT * FROM [contratos].[fn_Documento_selecionar_por_id_empresa](:id_empresa) ORDER BY tipo_documento");
             $stmt->bindParam('id_empresa', $idEmpresa);
             $stmt->execute();
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);

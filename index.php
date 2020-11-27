@@ -19,5 +19,6 @@ $container['view'] = function($container) {
 };
 require_once "./routes/route.php";
 require_once "./routes/routeEmpresa.php";
+require_once "./routes/routeContrato.php";
 
 $app->run();

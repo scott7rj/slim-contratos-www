@@ -26,7 +26,7 @@ $app->get('/carregarEmpresa', function(Request $request, Response $response) {
 			$array = $controller->selectEmpresaPorId($request, $response, array());
 			$comboUf = ComboBuilder::comboUf("empresaSelUf", "", $array['uf'], false, "60px");
 		}
-		return $this->view->render($response, 'empresa/empresa.twig', ['empresa' => $array, 'comboUf' => $comboUf]);
+		return $this->view->render($response, 'empresa/empresa.twig', ['empresa' => $array, 'empresaSelUf' => $comboUf]);
 	} catch (Exception $e) {
 		throw new Exception($e->getMessage());
 	}
@@ -45,7 +45,7 @@ $app->get('/carregarTelefoneEmpresa', function(Request $request, Response $respo
 
 		$comboTipoContato = ComboBuilder::comboTipoContato("empresaSelTelefoneTipoContato", "", "", false, "150px");
 			
-		return $this->view->render($response, 'empresa/empresaTelefone.twig', ['telefones' => $array, 'comboTipoContato' => $comboTipoContato, 'idEmpresa' => $idEmpresa]);
+		return $this->view->render($response, 'empresa/empresaTelefone.twig', ['telefones' => $array, 'empresaSelTelefoneTipoContato' => $comboTipoContato, 'idEmpresa' => $idEmpresa]);
 
 	} catch (Exception $e) {
 		throw new Exception($e->getMessage());
@@ -65,7 +65,7 @@ $app->get('/carregarEmailEmpresa', function(Request $request, Response $response
 
 		$comboTipoContato = ComboBuilder::comboTipoContato("empresaSelEmailTipoContato", "", "", false, "150px");
 		
-		return $this->view->render($response, 'empresa/empresaEmail.twig', ['emails' => $array, 'comboTipoContato' => $comboTipoContato, 'idEmpresa' => $idEmpresa]);
+		return $this->view->render($response, 'empresa/empresaEmail.twig', ['emails' => $array, 'empresaSelEmailTipoContato' => $comboTipoContato, 'idEmpresa' => $idEmpresa]);
 	} catch (Exception $e) {
 		throw new Exception($e->getMessage());
 	}
@@ -80,10 +80,11 @@ $app->get('/carregarDocumentoEmpresa', function(Request $request, Response $resp
 			$array = array();
 		else
 			$array = $controller->selectEmpresaDocumento($request, $response, array());
-			
-		$comboTipoDocumento = ComboBuilder::comboTipoDocumentoPorIdDominio(1, "empresaSelTipoDocumento", "", "", false, "300px");
 		
-		return $this->view->render($response, 'empresa/empresaDocumento.twig', ['documentos' => $array, 'comboTipoDocumento' => $comboTipoDocumento, 'idEmpresa' => $idEmpresa]);
+		//var_dump($array); die;	
+		$comboTipoDocumento = ComboBuilder::comboTipoDocumentoPorIdDominio(1, "empresaSelDocumentoTipoDocumento", "", "", false, "350px");
+		
+		return $this->view->render($response, 'empresa/empresaDocumento.twig', ['documentos' => $array, 'empresaSelDocumentoTipoDocumento' => $comboTipoDocumento, 'idEmpresa' => $idEmpresa]);
 	} catch (Exception $e) {
 		throw new Exception($e->getMessage());
 	}
