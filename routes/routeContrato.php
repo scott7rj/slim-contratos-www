@@ -46,3 +46,17 @@ $app->get('/carregarContrato', function(Request $request, Response $response) {
 		throw new Exception($e->getMessage());
 	}
 });
+
+$app->get('/carregarItemSubitemContrato', function(Request $request, Response $response) {
+	try {
+		$data = $request->getQueryParams();
+		$idContrato = $data['idContrato'];
+		$controller = new ContratoController();
+		//$array = $controller->selectContratoPorIdEmpresa($request, $response, array());
+		return $this->view->render($response, 'contrato/contratoItemSubitem.twig', []);
+
+	} catch (Exception $e) {
+		throw new Exception($e->getMessage());
+	}
+});
+

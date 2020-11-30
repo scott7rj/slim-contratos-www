@@ -24,7 +24,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td colspan="2">
 				<button class="app-btn b" onclick="salvarEmpresaSystem();" title="nova empresa"><span class="glyphicon glyphicon-ok"></span>&nbsp;SALVAR</button>
 			</td>
 		</tr>
@@ -34,7 +34,6 @@
 {% block script %}
 <script>
 $(document).ready(function() {
-	console.log(document.getElementById('contratoSelEmpresa'));
 	if ('{{contrato.id_empresa}}' !== "0") {
 		document.getElementById('contratoSelEmpresa').disabled = true;
 	}

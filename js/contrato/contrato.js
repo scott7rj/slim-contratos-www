@@ -9,27 +9,20 @@ function salvarContratoSystem() {
 }
 
 function inserirAlterarContratoSystem(idContrato) {
-	console.log('inserir alterar contrato ' + idContrato);
+	console.log('inserir alterar contrato ===> ' + idContrato);
 	$.get('./carregarContrato', { idContrato: idContrato }, function(data) {
         $('#wrapc3').html(data);
-	    /*
-        if (idEmpresa > 0) {
-	        $.get('./carregarTelefoneEmpresa', { idEmpresa: idEmpresa }, function(data) {
-	        	$('#wrapd2').html(data);
-	        });
-
-	        $.get('./carregarEmailEmpresa', { idEmpresa: idEmpresa }, function(data) {
-	        	$('#wrapd3').html(data);
-	        });
-
-	        $.get('./carregarDocumentoEmpresa', { idEmpresa: idEmpresa }, function(data) {
+        console.log('==>'+idContrato);
+        if (idContrato > 0) {
+        	console.log('carregarItemSubitemContrato '+idContrato);
+	        $.get('./carregarItemSubitemContrato', { idContrato: idContrato }, function(data) {
+	        	console.log(data);
 	        	$('#wrapd4').html(data);
 	        });
 	    } else {
 	    	console.log('limpar wrap4');
 	    	$('.wrap4 > div').html('');
 	    }
-	    */
     });
 }
 function removerContratoSystem(idContrato) {

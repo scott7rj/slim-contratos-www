@@ -51,12 +51,16 @@ table tr {
 	margin: 0;
 	padding: 0;
 }
+table th {
+	font-family: "Lucida Console", "Trebuchet MS", Courier;
+}
 table td {
 	margin: 0;
 	padding: 0;
 	vertical-align: top;
 	border: 1px solid transparent;
-	text-align: left;		
+	text-align: left;
+	font-family: "Lucida Console", "Trebuchet MS", Courier;
 }
 div {
 	/*font-size: 0.9rem;*/

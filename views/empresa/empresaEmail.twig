@@ -30,7 +30,7 @@
 			</tr>
 			{% for obj in emails %}
 			<tr>
-				<td class="formattelefone">{{ obj.email }}</td>
+				<td>{{ obj.email }}</td>
 				<td>{{ obj.tipo_contato }}</td>
 				<td style="text-align: center" onclick="removerTelefoneEmpresaSystem({{ obj.id_email }});"><span class="glyphicon glyphicon-trash spanIcon"></span></td>
 			</tr>

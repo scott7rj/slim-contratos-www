@@ -28,7 +28,7 @@ function clearOnLogoutSystem() {
 
 function loginSystem() {
 	let dados = serializeArray(document.forms["dvLoginFrm"]);
-	
+	/*
 	$.post('./login', {data:dados}, function(data) {
 		let obj = JSON.parse(data);
 		if (typeof obj === undefined || obj.erro !== "") {
@@ -38,7 +38,11 @@ function loginSystem() {
 		}
 		$('#wrapb3').html(obj.matricula + ' ' + obj.nome + '-' + obj.funcao + ' ' + obj.idFuncao + '-' + obj.sgUnidade + ' ' + obj.idUnidade);
         buildMainMenuSystem();	
-	});	
+	});
+	*/
+	//[BYPASS]	
+	$('#wrapb3').html("c110611");
+    buildMainMenuSystem();
 }
 
 function logoutSystem() {
@@ -53,6 +57,37 @@ function buildMainMenuSystem() {
         $('#wrapb2').html(data);
         $('#dvMenuTxtPesquisa').focus();
     });
+
+    //$.ajax({url: "./menu", async: true, success: function(data){
+    //	$('#wrapb2').html(data);
+    //    $('#dvMenuTxtPesquisa').focus();
+  	//}});
+  	/*
+	$(function(){
+		console.log('111');
+		$.fn.extend({
+			asyncLoad: function (url) {
+				console.log('222 '+ url);
+				var result = $.ajax({
+					url: url,
+					async: true,
+					type: "GET"
+			 	}).responseText;
+				console.log(result);
+			 	$(this).html(result);
+			}
+		});
+		$("#wrapb2").asyncLoad("./menu");
+	});  	
+	*/
+  	//$("#wrapb2").load("./menu", function(responseTxt, statusTxt, jqXHR){
+    //    if(statusTxt == "success"){
+    //        console.log("New content loaded successfully!");
+    //    }
+    //    if(statusTxt == "error"){
+    //        console.log("Error: " + jqXHR.status + " " + jqXHR.statusText);
+    //    }
+    //});
 }
 
 function callApi(destination, clearMenuSection) {
